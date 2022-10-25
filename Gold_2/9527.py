@@ -10,7 +10,6 @@ def onecnt(n):
     if diff == 0:
         return int(log2(n))*n//2+1
     return onecnt(square)+onecnt(diff)+diff
-    
 
 
 input = sys.stdin.readline
