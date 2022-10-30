@@ -1,7 +1,5 @@
-import sys
-input = sys.stdin.readline
-s1 = ' '+input().rstrip()
-s2 = ' '+input().rstrip()
+s1 = ' '+input()
+s2 = ' '+input()
 dp = [['']*(len(s2)) for _ in range(len(s1))]
 for i in range(1, len(s1)):
     for j in range(1, len(s2)):
