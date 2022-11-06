@@ -8,14 +8,13 @@ for i in range(N):
     if t == 1:
         q, r = h // H0, h % H0
         if r:
-            temp -= a*q
+            temp += a*q
         else:
-            temp -= a*(q-1)
+            temp += a*(q-1)
     else:
         H0 += a
-        temp += h
-    if temp > 0:
+        temp -= h
+    if temp < 0:
         temp = 0
-    ans = max(ans, abs(temp))
+    ans = max(ans, temp)
 print(ans+1)
-
