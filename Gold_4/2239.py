@@ -1,4 +1,3 @@
-# 김영록
 # 되는 수 중에서 아무거나 넣고 다시 빼기 (빼는 근거 : 다음 수 들어갈 경우의 수 없을 때) 백트래킹
 def sudoku(depth):
     if depth >= len(target):
