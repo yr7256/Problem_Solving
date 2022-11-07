@@ -1,5 +1,6 @@
 N = int(input())
 lst = list(map(int, input().split()))
+lst.sort()
 start, end = 0, N-1
 ans = 9876543210
 s, e = 0, 0
@@ -10,9 +11,10 @@ while start < end:
         s = start
         e = end
     if temp > 0:
-        end -= 1
+        end -=1
     if temp < 0:
         start += 1
     if temp == 0:
         break
 print(lst[s], lst[e])
+
