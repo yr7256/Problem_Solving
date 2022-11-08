@@ -1,4 +1,3 @@
-# 시간초과
 import sys
 
 
