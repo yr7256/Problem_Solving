@@ -2,13 +2,13 @@ from itertools import combinations
 from collections import deque
 
 
-def dfs(n):  # n 그룹 돌아볼거임
+def bfs(n):  # n 그룹 돌아볼거임
     start = n[0]
     queue = deque([start])
     visited = [start]
     result = 0
     while queue:
-        x = queue.pop()
+        x = queue.popleft()
         result += people[x]
         # print(route[x])
         for next in route[x]:
@@ -28,8 +28,8 @@ for i in range(1, N//2+1):
     combi = set(combinations(range(1, N+1), i))
     for c in combi:
         a = list(set(range(1, N+1)) - set(c))
-        A, lenA = dfs(a)
-        C, lenC = dfs(c)
+        A, lenA = bfs(a)
+        C, lenC = bfs(c)
         if lenA + lenC == N:
             ans = min(ans, abs(A-C))
 if ans == 10000:
