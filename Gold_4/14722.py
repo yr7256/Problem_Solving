@@ -23,6 +23,5 @@ for i in range(1, N+1):
             dp[i][j][2] = max(dp[i][j-1][1]+1, dp[i-1][j][1]+1)
         else:
             dp[i][j][2] = max(dp[i][j-1][2], dp[i-1][j][2])
-print(dp)
+# print(dp)
 print(max(dp[N][N]))
-
