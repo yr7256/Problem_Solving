@@ -5,8 +5,3 @@ for i in range(K):
     remainder = X % N
     r = quotient - R
     c = remainder - C
-    if r < 0:
-        r += N
-    if c < 0:
-        c += N
-    print(r,c)
