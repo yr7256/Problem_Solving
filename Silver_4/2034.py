@@ -8,7 +8,7 @@ nums = [int(input()) for _ in range(N)]
 for i in range(12):
     target = i
     for n in nums:
-        target = (target + n)%12
+        target = (target + n) % 12
         if piano[target] == 'X':
             break
     else:
