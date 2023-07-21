@@ -17,29 +17,29 @@
 #                     dp[i][j][k], dp[i-l][j+1][characters[j] + l] + (powers[j+1] - powers[j])*l)
 # print(ans + dp[days][0][0])
 
-# import sys
-# input = sys.stdin.readline
-# N = int(input())
-# characters = list(map(int, input().split()))
-# powers = list(map(int, input().split()))
-# days = int(input())
-# dp = [[[-1 for _ in range(days+1)] for _ in range(N)] for _ in range(days+1)]
-# ans = sum([characters[i]*powers[i] for i in range(N)])
-# def solution(x, y, z):
-#     if y == N - 1:
-#         return 0
-#     if dp[x][y][z] != -1:
-#         return dp[x][y][z]
+import sys
+input = sys.stdin.readline
+N = int(input())
+characters = list(map(int, input().split()))
+powers = list(map(int, input().split()))
+days = int(input())
+dp = [[[-1 for _ in range(days+1)] for _ in range(N)] for _ in range(days+1)]
+ans = sum([characters[i]*powers[i] for i in range(N)])
+def solution(x, y, z):
+    if y == N - 1:
+        return 0
+    if dp[x][y][z] != -1:
+        return dp[x][y][z]
 
-#     dp[x][y][z] = 0
-#     for i in range(z + characters[y] + 1):
-#         if x < i:
-#             break
-#         dp[x][y][z] = max(dp[x][y][z], solution(
-#             x - i, y + 1, i) + (powers[y + 1] - powers[y]) * i)
-#     return dp[x][y][z]
+    dp[x][y][z] = 0
+    for i in range(z + characters[y] + 1):
+        if x < i:
+            break
+        dp[x][y][z] = max(dp[x][y][z], solution(
+            x - i, y + 1, i) + (powers[y + 1] - powers[y]) * i)
+    return dp[x][y][z]
 
-# print(ans + solution(days, 0, 0))
+print(ans + solution(days, 0, 0))
 
 import sys
 input = sys.stdin.readline
