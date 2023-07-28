@@ -28,7 +28,7 @@ def in_range(positions):     # 사격 가능한 좌표 저장하기
     return shoot
 
 
-def find_enemy(possible):   # 먼저 때려야 될 사람 정하기 일단 거리 젤 가까운 애면서, 왼쪽에 있는 친구로 (그냥 x,y만 받으니까 안되더라)
+def _enemy(possible):   # 먼저 때려야 될 사람 정하기 일단 거리 젤 가까운 애면서, 왼쪽에 있는 친구로 (그냥 x,y만 받으니까 안되더라)
     possible.sort(key=lambda x: (x[2], x[1]))
     for x, y, d in possible:
         if (x, y) in enemy:
@@ -60,7 +60,7 @@ for pos in combi:   # 조합중에서 하나 뽑아.
         kill_temp = set()   # 각각의 궁수 한명이 얼마나 죽일수 있을까. (어차피 나중에 밑에서 계속 중복 지울거면 여기서 set으로 해버리기.)
         for p in killable:  # 저장해보자.
             # print(p)
-            kill = find_enemy(p)    # 주어진 리스트에서 가장 가까우면서 왼쪽인 애 골라서 죽이자.
+            kill = _enemy(p)    # 주어진 리스트에서 가장 가까우면서 왼쪽인 애 골라서 죽이자.
             if kill:
                 kill_temp.add(kill)
             # print(kill)
