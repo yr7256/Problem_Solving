@@ -1,3 +1,4 @@
+# 재채점 : 비활성화 비용이 0인 경우도 생각해줘야 한다.
 import sys
 input = sys.stdin.readline
 INF = sys.maxsize
@@ -7,7 +8,7 @@ inactivate = [0]+list(map(int, input().split()))
 dp = [[0]*(sum(inactivate)+1) for _ in range(N+1)]
 ans = INF
 for i in range(1, N+1):
-    for j in range(1, sum(inactivate)+1):
+    for j in range(sum(inactivate)+1):
         if inactivate[i] > j:
             dp[i][j] = dp[i-1][j]
         else:
