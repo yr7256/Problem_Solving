@@ -1,3 +1,11 @@
+'''
+knuth optimization
+
+DP[start][end] = min(DP[start][mid] + DP[mid+1][end]) + C[start][end] (start <= mid < end)
+opt[i][j-1]<=opt[i][j]<=opt[i+1][j]
+
+'''
+
 T = int(input())
 for _ in range(T):
     K = int(input())
@@ -6,11 +14,11 @@ for _ in range(T):
     prefix = [0] * (K+1)
     for i in range(1, K+1):
         prefix[i] = prefix[i-1]+nums[i]
-    for k in range(1, K):
-        for i in range(1, K-k+1):
-            end = k+i
+    for i in range(1, K):
+        for start in range(1, K-i+1):
+            end = start+i
             temp = 1e9
-            for j in range(i, end):
-                temp = min(temp, dp[i][j] + dp[j+1][end])
-            dp[i][j] = temp + prefix[end] - prefix[i]
+            for mid in range(start, end):
+                temp = min(temp, dp[start][mid]+dp[mid+1][end])
+            dp[start][end] = temp + prefix[end]-prefix[start-1]
     print(dp[1][K])
