@@ -5,7 +5,9 @@ DP[start][end] = min(DP[start][mid] + DP[mid+1][end]) + C[start][end] (start <= 
 opt[i][j-1]<=opt[i][j]<=opt[i+1][j]
 
 '''
-
+# python3 시간초과 pypy3 1276ms
+import sys
+input = sys.stdin.readline
 T = int(input())
 for _ in range(T):
     K = int(input())
