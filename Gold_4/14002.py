@@ -30,4 +30,3 @@ output
 ans = max(dp, key=len)
 print(len(ans))
 print(*ans)
-print(dp)
